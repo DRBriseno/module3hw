@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Compliments Results
+{% endblock %}
+
+{% block content %}
+
+<h1>Hello {{users_name}}</h1>
+
+{% if wants_compliments == "yes" %}
+
+    <h3>Hope you like your compliments!</h3>
+
+    {% for i in range(len_compliments) %}
+            <li>{{compliments[i]}}</li>
+    {% endfor %}
+
+{% else %}
+    <h3>You really dont want any compliments? :(</h3>
+
+{% endif %}
+
+{% endblock %}

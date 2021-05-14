@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Animal Facts
+{% endblock %}
+
+{% block content %}
+
+<h1>Animal Facts</h1>
+
+<form action="/animal_facts" method="GET">
+
+    <fieldset>
+
+        <legend>Your Info:</legend>
+
+        <label>
+            Which animal do you want facts on?
+
+            <select name="animal">
+
+                {% for i in animals %}
+                    <option value={{i}}>{{i}}</option>
+                {% endfor %}
+
+            </select>
+
+        </label>
+
+        <input type="submit" value="Get Fact!">
+
+    </fieldset>
+
+</form>
+
+
+<section id="form_results">
+
+    {% if users_animal != None %}
+        <p>Here is your animal: {{users_animal}}</p>
+
+    {% else %}
+        <p>Please choose an animal from the list above.</p>
+    {% endif %}
+    
+    <p>
+        {% if users_animal != None %}
+                <h1>Here is your fact: {{animal_fact}}</h1>
+        {% endif %}
+    </p>
+    
+</section>
+
+{% endblock %}
